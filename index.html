@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+  <!-- Primeras configuraciones del proyecto: HTML5, idioma, viewport y estilos -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rick & Morty Explorer</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="app-header">
+    <h1>Rick &amp; Morty <span>Explorer</span></h1>
+    <p class="subtitle">Consultá la API pública de Rick and Morty</p>
+  </header>
+
+  <main class="container">
+
+    <!-- ===================== TODOS LOS PERSONAJES ===================== -->
+    <section class="panel">
+      <h2>Todos los personajes</h2>
+      <button id="btnTodos" class="btn btn--primary">Obtener todos los personajes</button>
+    </section>
+
+    <!-- ===================== FILTROS ===================== -->
+    <section class="panel">
+      <h2>Buscar con filtros</h2>
+      <form id="formFiltros" class="filtros">
+        <div class="campo">
+          <label for="filtroName">Nombre</label>
+          <input type="text" id="filtroName" name="name" placeholder="Ej: Rick">
+        </div>
+
+        <div class="campo">
+          <label for="filtroStatus">Estado</label>
+          <input type="text" id="filtroStatus" name="status" placeholder="alive / dead / unknown">
+        </div>
+
+        <div class="campo">
+          <label for="filtroSpecies">Especie</label>
+          <input type="text" id="filtroSpecies" name="species" placeholder="Ej: Human">
+        </div>
+
+        <div class="campo">
+          <label for="filtroType">Tipo</label>
+          <input type="text" id="filtroType" name="type" placeholder="Ej: Parasite">
+        </div>
+
+        <div class="campo">
+          <label for="filtroGender">Género</label>
+          <input type="text" id="filtroGender" name="gender" placeholder="female / male / genderless / unknown">
+        </div>
+
+        <button type="submit" class="btn btn--primary">Buscar personajes</button>
+      </form>
+    </section>
+
+    <!-- ===================== MENSAJES / ESTADO ===================== -->
+    <p id="mensajeError" class="mensaje-error" hidden></p>
+    <p id="mensajeCargando" class="mensaje-cargando" hidden>Cargando personajes...</p>
+
+    <!-- ===================== PAGINACIÓN ===================== -->
+    <div id="paginacion" class="paginacion" hidden>
+      <button id="btnPrev" class="btn btn--secundario">← Anterior</button>
+      <span id="paginaInfo"></span>
+      <button id="btnNext" class="btn btn--secundario">Siguiente →</button>
+    </div>
+
+    <!-- ===================== RESULTADOS ===================== -->
+    <section id="resultados" class="resultados"></section>
+
+  </main>
+
+  <footer class="app-footer">
+    <p>Datos provistos por <a href="https://rickandmortyapi.com/" target="_blank" rel="noopener">rickandmortyapi.com</a></p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
