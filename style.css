@@ -1,0 +1,251 @@
+:root {
+  --verde-portal:   #2E8B3D;
+  --verde-oscuro:   #1E5F2A;
+  --amarillo:       #F5D547;
+  --azul-suero:     #3AAFB9;
+  --azul-suero-alt: #2C8C94;
+  --texto-oscuro:   #1B2430;
+  --texto-claro:    #F4F4F0;
+  --rojo-error:     #C0392B;
+  --gris-borde:     #d8d8d0;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Verdana, sans-serif;
+  background-color: var(--verde-portal);
+  color: var(--texto-oscuro);
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 1.5rem 1rem 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+
+.app-header {
+  background-color: var(--amarillo);
+  padding: 2rem 1rem;
+  text-align: center;
+  border-bottom: 6px solid var(--verde-oscuro);
+}
+
+.app-header h1 {
+  margin: 0;
+  font-size: 2.2rem;
+  color: var(--texto-oscuro);
+}
+
+.app-header h1 span {
+  color: var(--verde-oscuro);
+}
+
+.app-header .subtitle {
+  margin-top: 0.4rem;
+  color: #555;
+  font-size: 0.95rem;
+}
+
+
+.panel {
+  background-color: var(--texto-claro);
+  border-radius: 10px;
+  padding: 1.25rem 1.5rem;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+}
+
+.panel h2 {
+  margin-top: 0;
+  font-size: 1.15rem;
+  color: var(--verde-oscuro);
+}
+
+
+.btn {
+  border: none;
+  border-radius: 6px;
+  padding: 0.6rem 1.2rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: filter 0.15s ease;
+}
+
+.btn:hover {
+  filter: brightness(0.92);
+}
+
+.btn--primary {
+  background-color: var(--azul-suero);
+  color: white;
+}
+
+.btn--secundario {
+  background-color: var(--verde-oscuro);
+  color: white;
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+
+.filtros {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: flex-end;
+}
+
+.campo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  flex: 1 1 160px;
+}
+
+.campo label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--texto-oscuro);
+}
+
+.campo input {
+  padding: 0.5rem 0.6rem;
+  border: 1px solid var(--gris-borde);
+  border-radius: 6px;
+  font-size: 0.9rem;
+}
+
+.campo input:focus {
+  outline: none;
+  border-color: var(--azul-suero);
+}
+
+.filtros .btn {
+  flex: 0 0 auto;
+  height: 2.6rem;
+}
+
+
+.mensaje-error {
+  background-color: #FDECEA;
+  color: var(--rojo-error);
+  border: 1px solid var(--rojo-error);
+  border-radius: 8px;
+  padding: 0.85rem 1rem;
+  font-weight: 500;
+}
+
+.mensaje-cargando {
+  background-color: var(--texto-claro);
+  border-radius: 8px;
+  padding: 0.85rem 1rem;
+  text-align: center;
+  font-style: italic;
+  color: #555;
+}
+
+
+.paginacion {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  color: var(--texto-claro);
+  font-weight: 600;
+}
+
+
+.resultados {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: flex-start;
+}
+
+.personaje-card {
+  background-color: var(--texto-claro);
+  border-radius: 10px;
+  overflow: hidden;
+  width: 220px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: column;
+}
+
+.personaje-card img {
+  width: 100%;
+  display: block;
+}
+
+.personaje-card__info {
+  padding: 0.85rem 1rem 1.1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.personaje-card__info h3 {
+  margin: 0;
+  font-size: 1rem;
+  color: var(--verde-oscuro);
+}
+
+.personaje-card__info p {
+  margin: 0;
+  font-size: 0.82rem;
+  color: #444;
+}
+
+.estado {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.estado::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #999;
+}
+
+.estado--alive::before  { background-color: #2ECC71; }
+.estado--dead::before   { background-color: #E74C3C; }
+.estado--unknown::before{ background-color: #95A5A6; }
+
+
+.app-footer {
+  text-align: center;
+  padding: 1.25rem 1rem;
+  background-color: var(--verde-oscuro);
+  color: var(--texto-claro);
+  font-size: 0.85rem;
+}
+
+.app-footer a {
+  color: var(--amarillo);
+}
+
+
+@media (min-width: 768px) {
+  .app-header h1 {
+    font-size: 2.6rem;
+  }
+
+  .personaje-card {
+    width: 230px;
+  }
+}
